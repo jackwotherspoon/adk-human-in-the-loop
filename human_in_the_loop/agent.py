@@ -1,4 +1,17 @@
-# Conceptual Code: Using a Tool for Human Approval
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import asyncio
 
 import httpx
@@ -57,7 +70,7 @@ async def external_approval_tool(tool_context: ToolContext) -> str:
                 status_data = response.json()
                 if status_data["status"] != "pending":
                     return status_data["status"]
-            await asyncio.sleep(30)
+            await asyncio.sleep(10)
     
 prepare_approval_tool = FunctionTool(func=prepare_approval)
 approval_tool = FunctionTool(func=external_approval_tool)
