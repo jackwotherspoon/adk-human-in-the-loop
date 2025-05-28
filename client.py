@@ -15,8 +15,9 @@
 import streamlit as st
 import requests
 
-st.title("Request Manager")
+st.title("Expense Request Dashboard")
 
+# Get expense requests from server
 response = requests.get("http://localhost:9000/requests")
 requests_data = response.json()
 
@@ -33,12 +34,22 @@ else:
 
             col1, col2 = st.columns(2)
             with col1:
-                if st.button("Approve", key=f"approve_{request['id']}"):
+                if st.button("Approve", 
+                           key=f"approve_{request['id']}", 
+                           use_container_width=True, 
+                           icon="✅",
+                           help="Approve this request",
+                ):
                     requests.put(f"http://localhost:9000/request/{request['id']}", json={"status": "approved"})
+                    st.success("Request approved!")
+                    st.rerun()
             with col2:
-                if st.button("Reject", key=f"reject_{request['id']}"):
+                if st.button("Reject", 
+                           key=f"reject_{request['id']}", 
+                           use_container_width=True, 
+                           icon="❌",
+                           help="Reject this request",
+                ):
                     requests.put(f"http://localhost:9000/request/{request['id']}", json={"status": "rejected"})
-
-    # Add a refresh button
-    if st.button("Refresh"):  # Refresh button
-        st.rerun()
+                    st.error("Request rejected!")
+                    st.rerun()
