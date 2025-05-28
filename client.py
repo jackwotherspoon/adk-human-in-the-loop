@@ -27,6 +27,7 @@ pending_requests = [req for req in requests_data if req["status"] == "pending"]
 if not pending_requests:
     st.info("No pending requests to review")
 else:
+    st.info("Below are all the pending requests that require your review.")
     for request in pending_requests:
         with st.expander(request["id"]):
             st.write(f"Amount: ${request['amount']:.2f}")
