@@ -54,4 +54,4 @@ Hit `Reject` or `Approve` and wait for the agent to poll the FastAPI server for 
 
 Once it does so it should respond accordingly based on the human-in-the-loop decision!
 
-![ADK Web Interface](images/adk_web_interface.png)
+![ADK Web Interface](images/agent_workflow.png)
