@@ -29,7 +29,7 @@ uv run streamlit run client.py
 
 The Streamlit app is now running on `localhost:8501` and displays a manager approval dashboard.
 
-![Streamlit App](streamlit_app.png)
+![Streamlit App](images/streamlit_app.png)
 
 
 ### Start the ADK agent
@@ -48,10 +48,10 @@ The agent then waits for the manager to approve or reject the request. This is d
 
 To approve or reject the request, head to the Streamlit app at `localhost:8501` in your browser and click the `Approve` or `Reject` button for the given expense ID.
 
-![Pending Expense](pending_expense.png)
+![Pending Expense](images/pending_expense.png)
 
 Hit `Reject` or `Approve` and wait for the agent to poll the FastAPI server for the request status.
 
 Once it does so it should respond accordingly based on the human-in-the-loop decision!
 
-![ADK Web Interface](adk_web_interface.png)
+![ADK Web Interface](images/adk_web_interface.png)
